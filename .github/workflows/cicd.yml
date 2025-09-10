@@ -59,7 +59,7 @@ jobs:
             if [ ! -d "redis-website" ]; then
               git clone https://github.com/dev-shelke/containerized-redis-joke-app.git
             fi
-            cd redis-website
+            cd containerized-redis-joke-app
             git pull origin master
             # run build/start commands here
             docker compose up -d --build
