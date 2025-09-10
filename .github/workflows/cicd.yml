@@ -48,14 +48,18 @@ jobs:
           tags: ${{ secrets.DOCKER_USERNAME }}/redis-frontend:latest
 
       # --- Deploy on Azure VM ---
-      - name: Deploy to Azure VM
-        uses: appleboy/ssh-action@v1.1.0
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v0.1.10
         with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USER }}
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            cd ~/redis-website
-            git pull origin main
-            docker compose pull
+            cd /home/***
+            if [ ! -d "redis-website" ]; then
+              git clone https://github.com/<your-username>/redis-website.git
+            fi
+            cd redis-website
+            git pull origin master
+            # run build/start commands here
             docker compose up -d --build
