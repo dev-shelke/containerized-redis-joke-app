@@ -27,8 +27,8 @@ async function init() {
     const { data } = await axios.get("https://official-joke-api.appspot.com/jokes/random");
     const joke = `${data.setup} - ${data.punchline}`;
 
-    // Store in Redis (expire after 60s)
-    await client.set(cacheKey, joke, { EX: 60 });
+    // Store in Redis (expire after 10s)
+    await client.set(cacheKey, joke, { EX: 10 });
 
     res.json({ joke, cached: false });
   });
