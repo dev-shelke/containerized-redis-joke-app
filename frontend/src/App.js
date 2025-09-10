@@ -5,10 +5,14 @@ function App() {
   const [cached, setCached] = useState(false);
 
   const fetchJoke = async () => {
-    const res = await fetch("http://20.198.232.15:5000/joke");
-    const data = await res.json();
-    setJoke(data.joke);
-    setCached(data.cached);
+    try {
+      const res = await fetch("/api/joke"); 
+      const data = await res.json();
+      setJoke(data.joke);
+      setCached(data.cached);
+    } catch (error) {
+      console.error("Error fetching joke:", error);
+    }
   };
 
   return (
