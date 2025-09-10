@@ -57,7 +57,7 @@ jobs:
           script: |
             cd /home/***
             if [ ! -d "redis-website" ]; then
-              git clone https://github.com/<your-username>/redis-website.git
+              git clone https://github.com/dev-shelke/containerized-redis-joke-app.git
             fi
             cd redis-website
             git pull origin master
