@@ -11,7 +11,7 @@ services:
     networks: [appnet]
 
   backend:
-    image: devdoesdevops/redis-backend:latest # change your username while cloning the repo
+    image: devdoesdevops/redis-backend:latest
     container_name: backend
     ports:
       - "5000:5000"
@@ -20,20 +20,10 @@ services:
     networks: [appnet]
 
   frontend:
-    image: devdoesdevops/redis-frontend:latest # change your username while cloning the repo
+    image: devdoesdevops/redis-frontend:latest
     container_name: frontend
-    depends_on:
-      - backend
-    networks: [appnet]
-
-  nginx:
-    image: nginx:alpine
-    container_name: nginx
     ports:
       - "80:80"
-    volumes:
-      - ./frontend/build:/usr/share/nginx/html:ro
-      - ./nginx.conf:/etc/nginx/nginx.conf:ro
     depends_on:
       - backend
     networks: [appnet]
