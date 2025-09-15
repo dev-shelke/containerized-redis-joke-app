@@ -1,15 +1,22 @@
-🚀 Containerized Redis Joke App
+ # 🚀 Containerized Redis Joke App
+
 This project is a full-stack web application that uses Redis for storage, a Node.js backend, a React frontend, and Nginx as a reverse proxy. The app is fully containerized with Docker and deployed using a CI/CD pipeline with GitHub Actions and Docker Hub.
 
-📂 Project Structure
+##📂 Project Structure
+
 containerized-redis-joke-app/
-│── backend/           # Node.js backend (Express + Redis)
-│── frontend/          # React frontend
-│── nginx.conf         # Nginx reverse proxy configuration
+
+│── backend/ # Node.js backend (Express + Redis)
+
+│── frontend/ # React frontend
+
+│── nginx.conf # Nginx reverse proxy configuration
+
 │── docker-compose.yml # Multi-container setup
+
 └── .github/workflows/ # GitHub Actions CI/CD pipeline
 
-🛠️ Tech Stack
+##🛠️ Tech Stack
 
 Frontend: React + Nginx
 
@@ -21,10 +28,13 @@ Containerization: Docker & Docker Compose
 
 CI/CD: GitHub Actions + Docker Hub + Azure VM
 
-⚙️ Setup & Run Locally
-git clone https://github.com/<your-username>/containerized-redis-joke-app.git
-cd containerized-redis-joke-app
-docker compose up -d --build
+##⚙️ Setup & Run Locally
+
+``` git clone https://github.com//containerized-redis-joke-app.git ```
+
+```cd containerized-redis-joke-app```
+
+```docker compose up -d --build```
 
 Frontend → http://localhost
 
@@ -32,7 +42,7 @@ Backend API → http://localhost:5000/api
 
 Redis → port 6379
 
-📦 Docker Images
+##📦 Docker Images
 
 Backend → dockerhub-username/redis-backend:latest
 
@@ -42,7 +52,7 @@ Redis → redis:7-alpine
 
 Nginx → nginx:alpine
 
-🔄 How This Project Works
+##🔄 How This Project Works
 
 1.User Interaction
 
@@ -76,7 +86,7 @@ Nginx acts as a reverse proxy, routing requests between the frontend, backend, a
 
 On every push to master, GitHub Actions builds Docker images, pushes them to Docker Hub, then deploys on an Azure VM using docker compose.
 
-🔄 CI/CD Pipeline
+##🔄 CI/CD Pipeline
 
 The pipeline (defined in .github/workflows/cicd.yml) automates:
 
@@ -84,7 +94,7 @@ The pipeline (defined in .github/workflows/cicd.yml) automates:
 
 2.Continuous Deployment → Build & push Docker images → Deploy to Azure VM
 
-📑 Improvements
+##📑 Improvements
 
 ✅ Cache dependencies in CI for faster builds
 
@@ -96,13 +106,15 @@ The pipeline (defined in .github/workflows/cicd.yml) automates:
 
 🔜 Add auto rollback on failed deployment
 
-
-🤝 Contributing
+##🤝 Contributing
 
 1.Fork the repo
 
 2.Create a branch (feature-xyz)
 
 3.Commit & push changes
+
+4.Open a Pull Request
+
 
 4.Open a Pull Request
