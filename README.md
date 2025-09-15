@@ -84,6 +84,9 @@ The pipeline (defined in .github/workflows/cicd.yml) automates:
 ## 🤝 Contributing
 
 1.Fork the repo
+
 2.Create a branch (feature-xyz)
+
 3.Commit & push changes
+
 4.Open a Pull Request
