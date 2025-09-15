@@ -50,21 +50,27 @@ The user visits the frontend (React app served via Nginx).
 The UI allows requesting a random joke.
 Frontend → Backend
 The frontend sends an HTTP request to the backend (Node.js Express server).
+
 2.Backend → Redis
 The backend first checks Redis for a cached joke.
 If a cached joke exists → it is returned immediately.
 If not → the backend fetches a joke from a third-party API (or generates it), stores it in Redis, and returns it.
+
 3.Response
 The joke is displayed on the frontend.
 Redis caching ensures faster responses on repeated requests.
+
 4.Nginx Proxy
 Nginx acts as a reverse proxy, routing requests between the frontend, backend, and Redis services.
+
 5.CI/CD Flow
 On every push to master, GitHub Actions builds Docker images, pushes them to Docker Hub, then deploys on an Azure VM using docker compose.
 
-##🔄 CI/CD Pipeline
+## 🔄 CI/CD Pipeline
 The pipeline (defined in .github/workflows/cicd.yml) automates:
+
 1.Continuous Integration → Build & test backend and frontend
+
 2.Continuous Deployment → Build & push Docker images → Deploy to Azure VM
 
 ## 📑 Improvements
